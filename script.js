@@ -179,8 +179,14 @@ const doors = {
 	},
 
 	'furniture': {
-		loop: 590,
-		lock: 930,
+		'loop': {
+			priceEpicentr: 0,
+			priceRealiz: 590,
+		},
+		'lock': {
+			priceEpicentr: 0,
+			priceRealiz: 930,
+		},
 	}
 };
 
@@ -232,8 +238,8 @@ function calculateAmount(modelsList) {
 		console.log(count);
 		console.log(countZac);
 
-		amountEpicentr.innerHTML = countZac;
-		amountRealiz.innerHTML = count;
+		amountEpicentr.innerHTML = `Сумма закупки = ${countZac}`;
+		amountRealiz.innerHTML = `Сумма реалізації = ${count}`;
 
 		count = 0;
 		countZac = 0;
