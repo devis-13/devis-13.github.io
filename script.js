@@ -210,6 +210,8 @@ function switchDescription() {
 function calculateAmount(modelsList) {
 
 	const calculateBtn = document.querySelector('.door__plus-btn');
+	const amountEpicentr = document.querySelector('.door__amount-epicentr');
+	const amountRealiz = document.querySelector('.door__amount-realiz');
 	let selectModels;
 	let count = 0;
 	let countZac = 0;
@@ -224,10 +226,17 @@ function calculateAmount(modelsList) {
 			let name = item.name;
 			console.log(modelsList[model][name]);
 			count += modelsList[model][name].priceRealiz * +item.amount;
+			countZac += modelsList[model][name].priceEpicentr * +item.amount;
 		});
 
 		console.log(count);
+		console.log(countZac);
+
+		amountEpicentr.innerHTML = countZac;
+		amountRealiz.innerHTML = count;
+
 		count = 0;
+		countZac = 0;
 	});
 
 
