@@ -250,15 +250,14 @@ function calculateAmount(modelsList) {
 
 
 	function selectCheckedModels() {
-		const doorsBlock = document.querySelectorAll('input[type="checkbox"]:checked');
+		const doorsBlock = document.querySelectorAll('.door__item:has(input[type="checkbox"]:checked)');
 		let selectModels = [];
 
 		doorsBlock.forEach(item => {
-			let parentItem = item.parentElement;
 			let doorsModel = {
-				model: parentItem.parentElement.parentElement.id,
-				name: parentItem.id,
-				amount: parentItem.querySelector('input[type="number"]').value,
+				model: item.parentElement.parentElement.id,
+				name: item.id,
+				amount: item.querySelector('input[type="number"]').value,
 			};
 
 			selectModels.push(doorsModel);

@@ -22,3 +22,10 @@ html, body {
 .door__block.active .door__inner {
 	display: block;
 }
+.door__block:has(input:checked) .door__header{
+	background-color: blue;
+}
+
+.door__item:has(input:checked){
+		background-color: #1bee07;
+}
