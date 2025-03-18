@@ -196,18 +196,26 @@ changeAmount();
 
 
 function switchDescription() {
-	const block = document.querySelector('.door');
+	const block = document.querySelectorAll('.door__header');
 
-	block.addEventListener('click', function (event) {
-		if (event.target.closest('.door__btn')) {
-			toggleActive(event.target);
-		}
+	block.forEach(elem => {
+		elem.addEventListener('click', () => {
+			let processListItemClasses = elem.parentElement.classList;
+			processListItemClasses.toggle('active');
+		});
 	});
 
-	function toggleActive(event) {
-		let processListItemClasses = event.parentElement.parentElement.classList;
-		processListItemClasses.toggle('active');
-	}
+	// block.addEventListener('click', function (event) {
+	// 	if (event.target.closest('.door__header')) {
+	// 		console.log(event.target);
+	// 		toggleActive(event.target);
+	// 	}
+	// });
+
+	// function toggleActive(event) {
+	// 	let processListItemClasses = event.parentElement.classList;
+	// 	processListItemClasses.toggle('active');
+	// }
 };
 
 
