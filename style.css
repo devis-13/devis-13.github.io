@@ -9,16 +9,6 @@ html, body {
 	background-color: #856a6a;
 }
 
-.door__item {
-	height: 100px;
-	margin-bottom: 10px;
-	background-color: #ccc;
-}
-
-.door__inner {
-	display: none;
-}
-
 .door__block.active .door__inner {
 	display: block;
 }
@@ -26,6 +16,21 @@ html, body {
 	background-color: blue;
 }
 
+.door__inner {
+	display: none;
+}
+
+.door__item {
+	height: 100px;
+	margin-bottom: 10px;
+	background-color: #ccc;
+}
+
 .door__item:has(input:checked){
 		background-color: #1bee07;
+}
+
+
+.door__amount {
+	width: 35px;
 }

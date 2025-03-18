@@ -192,8 +192,7 @@ const doors = {
 
 switchDescription();
 calculateAmount(doors);
-
-
+changeAmount();
 
 
 function switchDescription() {
@@ -215,7 +214,7 @@ function switchDescription() {
 
 function calculateAmount(modelsList) {
 
-	const calculateBtn = document.querySelector('.door__plus-btn');
+	const calculateBtn = document.querySelector('.door__sum-btn');
 	const amountEpicentr = document.querySelector('.door__amount-epicentr');
 	const amountRealiz = document.querySelector('.door__amount-realiz');
 	let selectModels;
@@ -267,3 +266,22 @@ function calculateAmount(modelsList) {
 	};
 
 };
+
+function changeAmount() {
+	const block = document.querySelector('.door');
+
+	block.addEventListener('click', function (event) {
+		let elem = event.target;
+		let count;
+		if (elem.closest('.door__minus-btn')) {
+			count = +elem.parentElement.querySelector('.door__amount').value;
+			elem.parentElement.querySelector('.door__amount').value = count - 1;
+		}
+
+		if (elem.closest('.door__plus-btn')) {
+			count = +elem.parentElement.querySelector('.door__amount').value;
+			elem.parentElement.querySelector('.door__amount').value = count + 1;
+		}
+	});
+
+}
