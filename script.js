@@ -183,6 +183,7 @@ const doors = {
 switchDescription();
 calculateAmount(doors);
 changeAmount();
+activeCheckbox();
 
 
 function switchDescription() {
@@ -195,17 +196,6 @@ function switchDescription() {
 		});
 	});
 
-	// block.addEventListener('click', function (event) {
-	// 	if (event.target.closest('.door__header')) {
-	// 		console.log(event.target);
-	// 		toggleActive(event.target);
-	// 	}
-	// });
-
-	// function toggleActive(event) {
-	// 	let processListItemClasses = event.parentElement.classList;
-	// 	processListItemClasses.toggle('active');
-	// }
 };
 
 
@@ -213,8 +203,8 @@ function switchDescription() {
 function calculateAmount(modelsList) {
 
 	const calculateBtn = document.querySelector('.door__sum-btn');
-	const amountEpicentr = document.querySelector('.door__amount-epicentr');
-	const amountRealiz = document.querySelector('.door__amount-realiz');
+	const amountEpicentr = document.querySelector('.door__amount-res--epicentr > span');
+	const amountRealiz = document.querySelector('.door__amount-res--realiz > span');
 	let selectModels;
 	let count = 0;
 	let countZac = 0;
@@ -235,8 +225,8 @@ function calculateAmount(modelsList) {
 		console.log(count);
 		console.log(countZac);
 
-		amountEpicentr.innerHTML = `Сумма закупки = ${countZac}`;
-		amountRealiz.innerHTML = `Сумма реалізації = ${count}`;
+		amountEpicentr.innerHTML = countZac;
+		amountRealiz.innerHTML = count;
 
 		count = 0;
 		countZac = 0;
@@ -282,4 +272,21 @@ function changeAmount() {
 		}
 	});
 
+}
+
+function activeCheckbox() {
+	const item = document.querySelectorAll('.door__item');
+
+	item.forEach(elem => {
+		elem.addEventListener('click', (event) => {
+			if (!event.target.closest('.door__value-btn') && !event.target.closest('.door__amount')) {
+				let inputCheck = elem.querySelector('input[type="checkbox"]');
+				if (inputCheck.checked) {
+					inputCheck.checked = false;
+				} else if (!inputCheck.checked) {
+					inputCheck.checked = true;
+				};
+			}
+		});
+	});
 }
