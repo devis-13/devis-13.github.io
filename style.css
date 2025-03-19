@@ -28,12 +28,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* margin-bottom: 5px; */
 	padding: 20px 0;
-
-
-	color: #151615;
-
 
 	background-color: #3c3d3c;
 
@@ -42,29 +37,13 @@ body {
 .door__title {
 	margin: 0;
 	padding: 0;
+
 	font-size: 32px;
 	line-height: 34px;
+	color: #151615;
+
 	text-align: center;
 }
-
-.door__btn {
-	width: 80px;
-	height: 40px;
-	margin: 0;
-	padding: 0;
-
-
-	background-color: #3c3d3c;
-	border: none;
-	/* transform: rotate(90deg); */
-}
-
-.door__open-arrow {
-	width: 100%;
-	height: 100%;
-}
-
-
 
 .door__block.active .door__inner {
 	display: block;
@@ -82,9 +61,26 @@ body {
 }
 
 .door__item {
-	height: 100px;
+	padding: 10px 10px;
+
+	background-color: #706c61;
+	border-top: 2px solid #757267;
+	border-bottom: 2px solid #49473f;
+}
+
+.door__checkbox-label {
+	display: block;
+	margin-bottom: 15px;
+
+	font-size: 20px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.door__btn-block {
+	display: flex;
+	justify-content: center;
 	margin-bottom: 10px;
-	background-color: #ccc;
 }
 
 .door__item:has(input:checked){
@@ -95,4 +91,18 @@ body {
 .door__amount {
 	width: 35px;
 	text-align: center;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
 }

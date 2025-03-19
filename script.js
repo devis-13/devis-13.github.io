@@ -103,6 +103,14 @@ const doors = {
 			priceEpicentr: 6915,
 			priceRealiz: 8991,
 		},
+		'concBox': {
+			priceEpicentr: 5502,
+			priceRealiz: 7152,
+		},
+		'concBoxInside': {
+			priceEpicentr: 6801,
+			priceRealiz: 8841,
+		},
 	},
 
 	'other': {
@@ -158,14 +166,7 @@ const doors = {
 			priceEpicentr: 504,
 			priceRealiz: 654,
 		},
-		'concBox': {
-			priceEpicentr: 5502,
-			priceRealiz: 7152,
-		},
-		'concBoxInside': {
-			priceEpicentr: 6801,
-			priceRealiz: 8841,
-		},
+
 		'alProf-40': {
 			priceEpicentr: 1947,
 			priceRealiz: 2532,
@@ -177,17 +178,6 @@ const doors = {
 
 
 	},
-
-	'furniture': {
-		'loop': {
-			priceEpicentr: 0,
-			priceRealiz: 590,
-		},
-		'lock': {
-			priceEpicentr: 0,
-			priceRealiz: 930,
-		},
-	}
 };
 
 switchDescription();
@@ -281,12 +271,12 @@ function changeAmount() {
 	block.addEventListener('click', function (event) {
 		let elem = event.target;
 		let count;
-		if (elem.closest('.door__minus-btn')) {
+		if (elem.closest('.door__value-btn--minus')) {
 			count = +elem.parentElement.querySelector('.door__amount').value;
 			elem.parentElement.querySelector('.door__amount').value = count - 1;
 		}
 
-		if (elem.closest('.door__plus-btn')) {
+		if (elem.closest('.door__value-btn--plus')) {
 			count = +elem.parentElement.querySelector('.door__amount').value;
 			elem.parentElement.querySelector('.door__amount').value = count + 1;
 		}
