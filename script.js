@@ -181,7 +181,7 @@ const doors = {
 };
 
 switchDescription();
-calculateAmount(doors);
+// calculateAmount(doors);
 changeAmount();
 activeCheckbox();
 
@@ -202,35 +202,50 @@ function switchDescription() {
 
 function calculateAmount(modelsList) {
 
-	const calculateBtn = document.querySelector('.door__sum-btn');
+	// const calculateBtn = document.querySelector('.door__sum-btn');
 	const amountEpicentr = document.querySelector('.door__amount-res--epicentr > span');
 	const amountRealiz = document.querySelector('.door__amount-res--realiz > span');
 	let selectModels;
 	let count = 0;
 	let countZac = 0;
 
-	calculateBtn.addEventListener('click', function (event) {
-		selectModels = selectCheckedModels();
-		console.log(selectModels);
-
-		selectModels.forEach(function (item) {
-			let model = item.model;
-			console.log(model);
-			let name = item.name;
-			console.log(modelsList[model][name]);
-			count += modelsList[model][name].priceRealiz * +item.amount;
-			countZac += modelsList[model][name].priceEpicentr * +item.amount;
+	/* 	calculateBtn.addEventListener('click', function (event) {
+			selectModels = selectCheckedModels();
+			console.log(selectModels);
+	
+			selectModels.forEach(function (item) {
+				let model = item.model;
+				console.log(model);
+				let name = item.name;
+				console.log(modelsList[model][name]);
+				count += modelsList[model][name].priceRealiz * +item.amount;
+				countZac += modelsList[model][name].priceEpicentr * +item.amount;
+			});
+	
+			console.log(count);
+			console.log(countZac);
+	
+			amountEpicentr.innerHTML = countZac;
+			amountRealiz.innerHTML = count;
+	
+			count = 0;
+			countZac = 0;
 		});
+	 */
+	selectModels = selectCheckedModels();
 
-		console.log(count);
-		console.log(countZac);
-
-		amountEpicentr.innerHTML = countZac;
-		amountRealiz.innerHTML = count;
-
-		count = 0;
-		countZac = 0;
+	selectModels.forEach(function (item) {
+		let model = item.model;
+		let name = item.name;
+		count += modelsList[model][name].priceRealiz * +item.amount;
+		countZac += modelsList[model][name].priceEpicentr * +item.amount;
 	});
+
+	amountEpicentr.innerHTML = countZac;
+	amountRealiz.innerHTML = count;
+
+	count = 0;
+	countZac = 0;
 
 
 
@@ -270,7 +285,10 @@ function changeAmount() {
 			count = +elem.parentElement.querySelector('.door__amount').value;
 			elem.parentElement.querySelector('.door__amount').value = count + 1;
 		}
+
+		calculateAmount(doors);
 	});
+
 
 }
 
@@ -287,6 +305,8 @@ function activeCheckbox() {
 					inputCheck.checked = true;
 				};
 			}
+
+			calculateAmount(doors);
 		});
 	});
 }
