@@ -58,6 +58,7 @@ body {
 }
 
 .door__item {
+	position: relative;
 	padding: 10px 10px;
 
 	background-color: #706c61;
@@ -83,6 +84,12 @@ body {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 10px;
+}
+
+.door__price {
+	position: absolute;
+	bottom: 25px;
+	left: 15px;
 }
 
 .door__value-btn {

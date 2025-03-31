@@ -184,7 +184,7 @@ switchDescription();
 // calculateAmount(doors);
 changeAmount();
 activeCheckbox();
-
+writePrice();
 
 function switchDescription() {
 	const block = document.querySelectorAll('.door__header');
@@ -309,4 +309,24 @@ function activeCheckbox() {
 			calculateAmount(doors);
 		});
 	});
+}
+
+function writePrice() {
+	const models = document.querySelectorAll('.door__item');
+	console.log(1);
+
+	models.forEach(item => {
+
+		let blockName = item.parentElement.parentElement.id;
+		let modelName = item.id;
+		let modelPrice = item.querySelector('.door__price > span');
+		console.log(blockName);
+		console.log(modelName);
+		console.log(modelPrice);
+
+
+		console.log(doors[blockName][modelName].priceRealiz);
+		modelPrice.innerHTML = doors[blockName][modelName].priceRealiz;
+	});
+
 }
