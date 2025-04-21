@@ -1,19 +1,22 @@
+*{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 html, body, button, p, img {
 	padding: 0;
 	margin: 0;
 }
 
 body {
-	background-color: #f8f4e3;
-}
-
-.door {
+	background-color: #202024;
 }
 
 .door__block {
 
-	border-top: 2px solid #606360;
-	border-bottom: 2px solid #1b1b1b;
+	/* border-top: 2px solid #606360; */
+	border-top: 2px solid #252525;
+	/* border-bottom: 2px solid #1b1b1b; */
+	border-bottom: 2px solid #0e0d0d;
 }
 
 .door__block:first-child {
@@ -30,7 +33,9 @@ body {
 	align-items: center;
 	padding: 20px 0;
 
-	background-color: #4e504e;
+	/* background-color: #4e504e; */
+	background-color: #121214;
+
 
 }
 
@@ -40,7 +45,9 @@ body {
 
 	font-size: 32px;
 	line-height: 34px;
-	color: #151615;
+	/* color: #151615; */
+	color: #fff;
+
 
 	text-align: center;
 }
@@ -61,9 +68,14 @@ body {
 	position: relative;
 	padding: 10px 10px;
 
-	background-color: #706c61;
-	border-top: 2px solid #757267;
-	border-bottom: 2px solid #49473f;
+	color: #fff;
+
+	/* background-color: #706c61; */
+	background-color: #202024;
+	/* border-top: 2px solid #757267; */
+	border-top: 2px solid #181715;
+	/* border-bottom: 2px solid #49473f; */
+	border-bottom: 2px solid #0f0f0e;
 }
 
 .door__item:has(input:checked){
@@ -92,13 +104,20 @@ body {
 	left: 15px;
 }
 
+.door__price span {
+	font-weight: 900;
+}
+
 .door__value-btn {
 	width: 40px;
 	height: 30px;
 
-	background-color: #5e5a52;
+	background-color: #46433d;
 	border: 1px solid #1f1d1b;
 	border-radius: 8px;
+
+	color: #fff;
+	font-size: 20px;
 }
 
 .door__value-btn--minus {
@@ -111,6 +130,7 @@ body {
 	margin-right: 10px;
 
 	text-align: center;
+	font-weight: 900;
 
 	background-color: #f8f4e3b2;
 	border: 1px solid #f8f4e328;
@@ -122,11 +142,14 @@ body {
 
 	font-size: 24px;
 	line-height: 24px;
+	color: #fff;
 
-	background-color: #706c61;
-	border-top: 2px solid #757267;
-	border-bottom: 2px solid #49473f;
-}
+	background-color: #202024;
+	/* border-top: 2px solid #757267; */
+	border-top: 2px solid #181715;
+	/* border-bottom: 2px solid #49473f; */
+	border-bottom: 2px solid #0f0f0e;
+	}
 
 
 .door__sum-btn {
