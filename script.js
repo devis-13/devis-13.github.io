@@ -9,18 +9,10 @@ class Model {
 	}
 
 	toggleChecked() {
-		const calculateAmountEvent = new CustomEvent('calculateAmount', {
-			detail: {},
-		});
-		const customEventWriteSelectedItems = new CustomEvent('writeSelectedItems', {
-			detail: {},
-		});
-
 		this.checked = !this.checked;
 		this.checked ? this.count = 1 : this.count = 0;
 
-		document.dispatchEvent(calculateAmountEvent);
-		document.dispatchEvent(customEventWriteSelectedItems);
+		changeDataInHtml()
 	}
 
 	chengeCount(target) {
@@ -103,8 +95,6 @@ allDoorsItems.forEach(elem => {
 	const doorsItem = doors[elemModel][elemName];
 
 	elem.addEventListener('click', (event) => {
-		console.log(event.target);
-		console.log(event.target.parentElement);
 		if (!event.target.closest('.door__value-btn') && !event.target.closest('.door__count')) {
 			if (event.target.closest('.door__item') || event.target.parentElement.closest('.door__item')) {
 				const toggleCheckboxEvent = new CustomEvent('toggleCheckbox', {
@@ -132,163 +122,7 @@ allDoorsItems.forEach(elem => {
 	});
 });
 
-document.addEventListener('toggleCheckbox', (obj) => {
-	console.log(1);
-	const elem = obj.detail.elem;
-	const doorsItem = obj.detail.doorsItem;
-
-	doorsItem.toggleChecked();
-
-	const allDoorItem = document.querySelectorAll('.door__item');
-
-	allDoorItem.forEach((item) => {
-		if (item.dataset.name == elem.dataset.name) {
-			console.log(2);
-			const inputCheck = item.querySelector('input[type="checkbox"]');
-			inputCheck.checked = doorsItem.checked;
-			item.querySelector('.door__count').value = doorsItem.count;
-		}
-	})
-});
-
-document.addEventListener('changeCount', (obj) => {
-	const elem = obj.detail.elem;
-	const target = obj.detail.target;
-	const doorsItem = obj.detail.doorsItem;
-
-	const calculateAmountEvent = new CustomEvent('calculateAmount', {
-		detail: {},
-	});
-	const customEventWriteSelectedItems = new CustomEvent('writeSelectedItems', {
-		detail: {},
-	});
-
-	doorsItem.chengeCount(target);
-
-	const allDoorItem = document.querySelectorAll('.door__item');
-
-	allDoorItem.forEach((item) => {
-		if (item.dataset.name == elem.dataset.name) {
-			item.querySelector('.door__count').value = doorsItem.count;
-		}
-	})
-
-	document.dispatchEvent(calculateAmountEvent);
-	document.dispatchEvent(customEventWriteSelectedItems);
-});
-
-document.addEventListener('calculateAmount', () => {
-	const amountEpicentr = document.querySelector('.door__amount-res--epicentr > span');
-	const amountRealiz = document.querySelector('.door__amount-res--realiz > span');
-
-	countRealiz = 0;
-	countEpicentr = 0;
-
-	createSelectedItemsList();
-
-	for (key in selectedItemsList) {
-		let item = selectedItemsList[key];
-		let model = item.model;
-		let name = item.name;
-
-		countRealiz += doors[model][name].priceRealiz * +item.count;
-		countEpicentr += doors[model][name].priceEpicentr * +item.count;
-	};
-
-	amountEpicentr.innerHTML = countEpicentr;
-	amountRealiz.innerHTML = countRealiz;
-
-	function createSelectedItemsList() {
-
-		for (key in selectedItemsList) {
-			delete selectedItemsList[key];
-		};
-
-		for (model in doors) {
-			for (item in doors[model]) {
-				if (doors[model][item].checked) {
-					selectedItemsList[item] = {
-						model: model,
-						name: item,
-						count: doors[model][item].count,
-						checked: doors[model][item].checked,
-					};
-				}
-			}
-		};
-	};
-
-});
-
-document.addEventListener('writeSelectedItems', () => {
-	let selectedBlock = document.querySelector('.seleted-block__inner');
-	let selectedItemsHtmlList = {};
-	selectedBlock.innerHTML = null;
-
-	for (key in selectedItemsList) {
-		let item = selectedItemsList[key];
-		let model = item.model;
-		let name = item.name;
-
-		let innerText = `<div class="door__item door__item--selected" data-selectedElem="true" data-model="${model}" data-name="${name}" id="${name}_selected">
-									<input type="checkbox" class="door__checkbox visually-hidden" name="${name}" id="${name}_lb_selected" checked>
-									<label class="door__checkbox-label" for="${name}_lb_selected">
-									${doors[model][name].title}
-									</label>
-									<p class="door__price">Ціна: ${doors[model][name].priceRealiz}<span></span></p>
-									<div class="door__btn-block">
-											<button class="door__value-btn door__value-btn--minus">-</button>
-											<input type="number" class="door__count" value="${doors[model][name].count}">
-									<button class="door__value-btn door__value-btn--plus">+</button>
-									</div>
-								</div>`
-
-		selectedItemsHtmlList[name] = innerText;
-	};
-
-	for (key in selectedItemsHtmlList) {
-		let item = selectedItemsHtmlList[key];
-
-		selectedBlock.innerHTML += item;
-	};
-
-	const selectedAllDoorsItems = document.querySelectorAll('.door__item--selected');
-
-	selectedAllDoorsItems.forEach(elem => {
-		const elemModel = elem.dataset.model;
-		const elemName = elem.dataset.name;
-		const doorsItem = doors[elemModel][elemName];
-
-		elem.addEventListener('click', (event) => {
-			if (!event.target.closest('.door__value-btn') && !event.target.closest('.door__count')) {
-				if (event.target.closest('.door__item') || event.target.parentElement.closest('.door__item')) {
-					console.log(1);
-					const toggleCheckboxEvent = new CustomEvent('toggleCheckbox', {
-						detail: {
-							elem: elem,
-							doorsItem: doorsItem,
-						}
-					});
-
-					document.dispatchEvent(toggleCheckboxEvent);
-				}
-			};
-
-			if (event.target.closest('.door__value-btn')) {
-				const changeAmountEvent = new CustomEvent('changeCount', {
-					detail: {
-						elem: elem,
-						target: event.target,
-						doorsItem: doorsItem,
-					},
-				});
-
-				document.dispatchEvent(changeAmountEvent);
-			};
-		});
-	});
-});
-
+eventInitialization()
 switchModelBlock();
 writePrice();
 writeLable();
@@ -327,5 +161,161 @@ function writeLable() {
 		const doorName = item.querySelector('label');
 
 		doorName.innerHTML = doors[blockName][modelName].title;
+	});
+};
+
+function changeDataInHtml() {
+	const calculateAmountEvent = new Event('calculateAmount');
+	const customEventWriteSelectedItems = new Event('writeSelectedItems');
+	const customEventCreateSelectedItemsList = new Event('createSelectedItemsList');
+
+	document.dispatchEvent(customEventCreateSelectedItemsList);
+	document.dispatchEvent(calculateAmountEvent);
+	document.dispatchEvent(customEventWriteSelectedItems);
+};
+
+function eventInitialization() {
+	document.addEventListener('createSelectedItemsList', (obj) => {
+		for (key in selectedItemsList) {
+			delete selectedItemsList[key];
+		};
+
+		for (model in doors) {
+			for (item in doors[model]) {
+				if (doors[model][item].checked) {
+					selectedItemsList[item] = {
+						model: model,
+						name: item,
+						count: doors[model][item].count,
+						checked: doors[model][item].checked,
+					};
+				}
+			}
+		};
+	});
+
+	document.addEventListener('toggleCheckbox', (obj) => {
+		const elem = obj.detail.elem;
+		const doorsItem = obj.detail.doorsItem;
+
+		doorsItem.toggleChecked();
+
+		const allDoorItem = document.querySelectorAll('.door__item');
+
+		allDoorItem.forEach((item) => {
+			if (item.dataset.name == elem.dataset.name) {
+				const inputCheck = item.querySelector('input[type="checkbox"]');
+
+				inputCheck.checked = doorsItem.checked;
+				item.querySelector('.door__count').value = doorsItem.count;
+			}
+		})
+	});
+
+	document.addEventListener('changeCount', (obj) => {
+		const elem = obj.detail.elem;
+		const target = obj.detail.target;
+		const doorsItem = obj.detail.doorsItem;
+
+		doorsItem.chengeCount(target);
+
+		const allDoorItem = document.querySelectorAll('.door__item');
+
+		allDoorItem.forEach((item) => {
+			if (item.dataset.name == elem.dataset.name) {
+				item.querySelector('.door__count').value = doorsItem.count;
+			}
+		})
+
+		changeDataInHtml()
+	});
+
+	document.addEventListener('calculateAmount', () => {
+		const amountEpicentr = document.querySelector('.door__amount-res--epicentr > span');
+		const amountRealiz = document.querySelector('.door__amount-res--realiz > span');
+
+		countRealiz = 0;
+		countEpicentr = 0;
+
+		for (key in selectedItemsList) {
+			let item = selectedItemsList[key];
+			let model = item.model;
+			let name = item.name;
+
+			countRealiz += doors[model][name].priceRealiz * +item.count;
+			countEpicentr += doors[model][name].priceEpicentr * +item.count;
+		};
+
+		amountEpicentr.innerHTML = countEpicentr;
+		amountRealiz.innerHTML = countRealiz;
+	});
+
+	document.addEventListener('writeSelectedItems', () => {
+		let selectedBlock = document.querySelector('.seleted-block__inner');
+		let selectedItemsHtmlList = {};
+		selectedBlock.innerHTML = null;
+
+		for (key in selectedItemsList) {
+			let item = selectedItemsList[key];
+			let model = item.model;
+			let name = item.name;
+
+			let innerText = `<div class="door__item door__item--selected" data-selectedElem="true" data-model="${model}" data-name="${name}" id="${name}_selected">
+										<input type="checkbox" class="door__checkbox visually-hidden" name="${name}" id="${name}_lb_selected" checked>
+										<label class="door__checkbox-label" for="${name}_lb_selected">
+										${doors[model][name].title}
+										</label>
+										<p class="door__price">Ціна: ${doors[model][name].priceRealiz}<span></span></p>
+										<div class="door__btn-block">
+												<button class="door__value-btn door__value-btn--minus">-</button>
+												<input type="number" class="door__count" value="${doors[model][name].count}">
+										<button class="door__value-btn door__value-btn--plus">+</button>
+										</div>
+									</div>`
+
+			selectedItemsHtmlList[name] = innerText;
+		};
+
+		for (key in selectedItemsHtmlList) {
+			let item = selectedItemsHtmlList[key];
+
+			selectedBlock.innerHTML += item;
+		};
+
+		const selectedAllDoorsItems = document.querySelectorAll('.door__item--selected');
+
+		selectedAllDoorsItems.forEach(elem => {
+			const elemModel = elem.dataset.model;
+			const elemName = elem.dataset.name;
+			const doorsItem = doors[elemModel][elemName];
+
+			elem.addEventListener('click', (event) => {
+				if (!event.target.closest('.door__value-btn') && !event.target.closest('.door__count')) {
+					if (event.target.closest('.door__item') || event.target.parentElement.closest('.door__item')) {
+						console.log(1);
+						const toggleCheckboxEvent = new CustomEvent('toggleCheckbox', {
+							detail: {
+								elem: elem,
+								doorsItem: doorsItem,
+							}
+						});
+
+						document.dispatchEvent(toggleCheckboxEvent);
+					}
+				};
+
+				if (event.target.closest('.door__value-btn')) {
+					const changeAmountEvent = new CustomEvent('changeCount', {
+						detail: {
+							elem: elem,
+							target: event.target,
+							doorsItem: doorsItem,
+						},
+					});
+
+					document.dispatchEvent(changeAmountEvent);
+				};
+			});
+		});
 	});
 };
