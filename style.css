@@ -52,16 +52,15 @@ body {
 	text-align: center;
 }
 
-.door__block.active .door__inner {
+.door__inner {
+	display: none;
+}
+
+.door__block.active > .door__inner {
 	display: block;
 }
 .door__block:has(input:checked) .door__header{
 	background-color: #413f3f;
-}
-
-
-.door__inner {
-	display: none;
 }
 
 .door__item {
@@ -82,6 +81,35 @@ body {
 	background-color: #858176;
 }
 
+.door__list {
+	display: grid;
+	margin: 0 0 15px 0;
+	padding: 0;
+	grid-template-columns: repeat(2, 1fr);
+
+	justify-items: center;
+
+	list-style-type: none;
+}
+
+.door__elem {
+	padding-top: 15px;
+}
+
+.door__image {
+	margin: 5px;
+	padding: 0;
+
+	color: #ffffff;
+}
+
+.door__model-title {
+	margin: 0;
+	padding: 0;
+
+	color: #ffffff;
+	text-align: center;
+}
 
 .door__checkbox-label {
 	display: block;
@@ -175,4 +203,8 @@ body {
 	clip-path: inset(100%);
 	clip: rect(0 0 0 0);
 	overflow: hidden;
+}
+
+.swiper {
+	height: 200px;
 }

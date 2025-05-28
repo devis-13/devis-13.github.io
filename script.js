@@ -1,3 +1,21 @@
+const swiper = new Swiper('.swiper', {
+	direction: 'vertical',
+	loop: true,
+
+	pagination: {
+		el: '.swiper-pagination',
+	},
+
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	},
+
+	scrollbar: {
+		el: '.swiper-scrollbar',
+	},
+});
+
 class Model {
 
 	constructor(title, priceEpicentr, priceRealiz) {
@@ -132,7 +150,9 @@ function switchModelBlock() {
 	const titleList = document.querySelectorAll('.door__header');
 
 	titleList.forEach(item => {
-		item.addEventListener('click', () => {
+		item.addEventListener('click', (event) => {
+			console.log(event.target)
+			console.log(1);
 			item.parentElement.classList.toggle('active');
 		});
 	});
