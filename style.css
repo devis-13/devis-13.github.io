@@ -8,6 +8,7 @@ html, body, button, p, img {
 }
 
 body {
+	position: relative;
 	background-color: #202024;
 }
 
@@ -87,6 +88,7 @@ body {
 }
 
 .model-block__inner {
+	position: relative;
 	background-color: #131314;
 	border-top: 1px solid #2f2f31;
 }
@@ -216,5 +218,71 @@ body {
 }
 
 .swiper {
-	height: 200px;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #131314;
+}
+
+.swiper__close {
+	position: absolute;
+	top: 25px;
+	right: 20px;
+	z-index: 5;
+
+	width: 35px;
+	height: 35px;
+}
+
+.swiper__close::before, .swiper__close::after {
+	content: "";
+
+	position: absolute;
+
+	width: 35px;
+	height: 3px;
+	background-color: #ffffff;
+}
+
+.swiper__close::before {
+	transform: rotate(45deg);
+}
+
+.swiper__close::after {
+	transform: rotate(-45deg);
+}
+
+.swiper-slide {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.swiper__image {
+	width: 90%;
+	height: 90%;
+	margin-top: 10px;
+}
+
+.swiper__model-title {
+	color: #ffffff;
+}
+
+.swiper-pagination-bullet {
+	background-color: #ffffff;
+	opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: #ffffff;
+	opacity: 1;
+}
+
+.swiper--active {
+	display: block;
 }

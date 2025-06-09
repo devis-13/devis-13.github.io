@@ -1,20 +1,20 @@
-const swiper = new Swiper('.swiper', {
-	direction: 'vertical',
-	loop: true,
+// const swiper = new Swiper('.swiper', {
+// 	direction: 'vertical',
+// 	loop: true,
 
-	pagination: {
-		el: '.swiper-pagination',
-	},
+// 	pagination: {
+// 		el: '.swiper-pagination',
+// 	},
 
-	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	},
+// 	navigation: {
+// 		nextEl: '.swiper-button-next',
+// 		prevEl: '.swiper-button-prev',
+// 	},
 
-	scrollbar: {
-		el: '.swiper-scrollbar',
-	},
-});
+// 	scrollbar: {
+// 		el: '.swiper-scrollbar',
+// 	},
+// });
 
 class Model {
 
@@ -145,6 +145,9 @@ switchModelBlock();
 writePrice();
 writeLable();
 
+openSwiperBlock();
+closeSwiperBlock();
+
 
 function switchModelBlock() {
 	const titleList = document.querySelectorAll('.door__header');
@@ -152,8 +155,48 @@ function switchModelBlock() {
 	titleList.forEach(item => {
 		item.addEventListener('click', (event) => {
 			console.log(event.target)
-			console.log(1);
 			item.parentElement.classList.toggle('active');
+		});
+	});
+};
+
+function openSwiperBlock() {
+	const modelList = document.querySelectorAll('.model-block__image');
+
+	console.log(modelList);
+	modelList.forEach(item => {
+		item.addEventListener('click', (event) => {
+			console.log(item.parentElement.parentElement.nextElementSibling);
+			console.log(item.parentElement.parentElement.nextElementSibling.classList.contains('swiper'));
+			console.log(item);
+			if (item.parentElement.parentElement.nextElementSibling.classList.contains('swiper')) {
+				const swiper = new Swiper('.swiper', {
+					direction: 'vertical',
+					loop: true,
+
+					pagination: {
+						el: '.swiper-pagination',
+					},
+
+					initialSlide: +item.dataset.slide - 1,
+				});
+				item.parentElement.parentElement.nextElementSibling.classList.add('swiper--active');
+			};
+		});
+	});
+};
+
+function closeSwiperBlock() {
+	const modelList = document.querySelectorAll('.swiper__close');
+
+	console.log(modelList);
+	modelList.forEach(item => {
+		item.addEventListener('click', (event) => {
+			console.log(item.parentElement);
+			console.log(item.parentElement.classList.contains('swiper'));
+			if (item.parentElement.classList.contains('swiper')) {
+				item.parentElement.classList.remove('swiper--active');
+			};
 		});
 	});
 };
