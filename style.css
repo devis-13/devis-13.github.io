@@ -266,13 +266,14 @@ body {
 .swiper__image {
 	height: 90%;
 	margin-top: 10px;
+	margin-left: 40px;
 }
 
 .swiper__model-title {
 	color: #ffffff;
 }
 
-.swiper-pagination-bullet {
+/* .swiper-pagination-bullet {
 	background-color: #ffffff;
 	opacity: 0.4;
 }
@@ -280,8 +281,16 @@ body {
 .swiper-pagination-bullet-active {
 	background-color: #ffffff;
 	opacity: 1;
+} */
+
+.swiper-pagination {
+	position: relative;
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+	color: #ffffff;
 }
 
 .swiper--active {
-	display: block;
+	display: flex;
 }

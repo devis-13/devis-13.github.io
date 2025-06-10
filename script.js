@@ -142,12 +142,9 @@ allDoorsItems.forEach(elem => {
 
 eventInitialization()
 switchModelBlock();
+switchSwiperBlock();
 writePrice();
 writeLable();
-
-openSwiperBlock();
-closeSwiperBlock();
-
 
 function switchModelBlock() {
 	const titleList = document.querySelectorAll('.door__header');
@@ -160,46 +157,64 @@ function switchModelBlock() {
 	});
 };
 
-function openSwiperBlock() {
-	const modelList = document.querySelectorAll('.model-block__image');
+function switchSwiperBlock() {
 
-	console.log(modelList);
-	modelList.forEach(item => {
-		item.addEventListener('click', (event) => {
-			console.log(item.parentElement.parentElement.nextElementSibling);
-			console.log(item.parentElement.parentElement.nextElementSibling.classList.contains('swiper'));
-			console.log(item);
-			if (item.parentElement.parentElement.nextElementSibling.classList.contains('swiper')) {
-				const swiper = new Swiper('.swiper', {
-					direction: 'vertical',
-					loop: true,
+	let swiper;
 
-					pagination: {
-						el: '.swiper-pagination',
-					},
+	openSwiperBlock();
+	closeSwiperBlock();
 
-					initialSlide: +item.dataset.slide - 1,
-				});
-				item.parentElement.parentElement.nextElementSibling.classList.add('swiper--active');
-			};
+	function openSwiperBlock() {
+		const modelList = document.querySelectorAll('.model-block__image');
+
+		modelList.forEach(item => {
+			item.addEventListener('click', (event) => {
+				if (item.parentElement.parentElement.nextElementSibling.classList.contains('swiper')) {
+
+					swiper = new Swiper('.swiper', {
+						direction: 'vertical',
+						loop: true,
+						loopedSlidesLimit: null,
+
+						pagination: {
+							el: '.swiper-pagination',
+							// clickable: true,
+							type: 'fraction',
+							renderCustom: function (swiper, current, total) {
+								return current + ' of ' + total;
+							},
+						},
+
+						initialSlide: +item.dataset.slide - 1,
+					});
+
+					item.parentElement.parentElement.nextElementSibling.classList.add('swiper--active');
+				};
+			});
 		});
-	});
+	};
+
+	function closeSwiperBlock() {
+		const modelList = document.querySelectorAll('.swiper__close');
+		// const paginationList = document.querySelectorAll('.swiper-pagination');
+
+		modelList.forEach(item => {
+			item.addEventListener('click', (event) => {
+				if (item.parentElement.classList.contains('swiper')) {
+					item.parentElement.classList.remove('swiper--active');
+					// paginationList.forEach(elem => {
+					// 	console.log(1);
+					// 	elem.innerHTML = null;
+					// });
+				};
+			});
+		});
+	};
 };
 
-function closeSwiperBlock() {
-	const modelList = document.querySelectorAll('.swiper__close');
 
-	console.log(modelList);
-	modelList.forEach(item => {
-		item.addEventListener('click', (event) => {
-			console.log(item.parentElement);
-			console.log(item.parentElement.classList.contains('swiper'));
-			if (item.parentElement.classList.contains('swiper')) {
-				item.parentElement.classList.remove('swiper--active');
-			};
-		});
-	});
-};
+
+
 
 function writePrice() {
 	const models = document.querySelectorAll('.door__item');
