@@ -1,21 +1,3 @@
-// const swiper = new Swiper('.swiper', {
-// 	direction: 'vertical',
-// 	loop: true,
-
-// 	pagination: {
-// 		el: '.swiper-pagination',
-// 	},
-
-// 	navigation: {
-// 		nextEl: '.swiper-button-next',
-// 		prevEl: '.swiper-button-prev',
-// 	},
-
-// 	scrollbar: {
-// 		el: '.swiper-scrollbar',
-// 	},
-// });
-
 class Model {
 
 	constructor(title, priceEpicentr, priceRealiz) {
@@ -23,12 +5,15 @@ class Model {
 		this.priceEpicentr = priceEpicentr;
 		this.priceRealiz = priceRealiz;
 		this.count = 0;
+		this.sum = 0;
 		this.checked = false;
 	}
 
 	toggleChecked() {
 		this.checked = !this.checked;
-		this.checked ? this.count = 1 : this.count = 0;
+		if (this.checked) {
+			!this.count ? this.count = 1 : this.count;
+		} else { this.count = 0 };
 
 		changeDataInHtml()
 	}
@@ -41,6 +26,10 @@ class Model {
 		if (target.closest('.door__value-btn--plus')) {
 			this.count += 1;
 		};
+	}
+
+	chengeSum() {
+		this.sum = this.priceRealiz * this.count;
 	}
 }
 
@@ -151,7 +140,6 @@ function switchModelBlock() {
 
 	titleList.forEach(item => {
 		item.addEventListener('click', (event) => {
-			console.log(event.target)
 			item.parentElement.classList.toggle('active');
 		});
 	});
@@ -170,21 +158,17 @@ function switchSwiperBlock() {
 		modelList.forEach(item => {
 			item.addEventListener('click', (event) => {
 				if (item.parentElement.parentElement.nextElementSibling.classList.contains('swiper')) {
-
 					swiper = new Swiper('.swiper', {
 						direction: 'vertical',
 						loop: true,
 						loopedSlidesLimit: null,
-
 						pagination: {
 							el: '.swiper-pagination',
-							// clickable: true,
 							type: 'fraction',
 							renderCustom: function (swiper, current, total) {
 								return current + ' of ' + total;
 							},
 						},
-
 						initialSlide: +item.dataset.slide - 1,
 					});
 
@@ -196,25 +180,16 @@ function switchSwiperBlock() {
 
 	function closeSwiperBlock() {
 		const modelList = document.querySelectorAll('.swiper__close');
-		// const paginationList = document.querySelectorAll('.swiper-pagination');
 
 		modelList.forEach(item => {
 			item.addEventListener('click', (event) => {
 				if (item.parentElement.classList.contains('swiper')) {
 					item.parentElement.classList.remove('swiper--active');
-					// paginationList.forEach(elem => {
-					// 	console.log(1);
-					// 	elem.innerHTML = null;
-					// });
 				};
 			});
 		});
 	};
 };
-
-
-
-
 
 function writePrice() {
 	const models = document.querySelectorAll('.door__item');
@@ -246,10 +221,12 @@ function changeDataInHtml() {
 	const calculateAmountEvent = new Event('calculateAmount');
 	const customEventWriteSelectedItems = new Event('writeSelectedItems');
 	const customEventCreateSelectedItemsList = new Event('createSelectedItemsList');
+	// const customEventChangeSum = new Event('changeSum');
 
 	document.dispatchEvent(customEventCreateSelectedItemsList);
 	document.dispatchEvent(calculateAmountEvent);
 	document.dispatchEvent(customEventWriteSelectedItems);
+	// document.dispatchEvent(customEventChangeSum);
 };
 
 function eventInitialization() {
@@ -275,6 +252,12 @@ function eventInitialization() {
 	document.addEventListener('toggleCheckbox', (obj) => {
 		const elem = obj.detail.elem;
 		const doorsItem = obj.detail.doorsItem;
+		const customEventChangeSum = new CustomEvent('changeSum', {
+			detail: {
+				elem: elem,
+				doorsItem: doorsItem,
+			},
+		});
 
 		doorsItem.toggleChecked();
 
@@ -287,13 +270,21 @@ function eventInitialization() {
 				inputCheck.checked = doorsItem.checked;
 				item.querySelector('.door__count').value = doorsItem.count;
 			}
-		})
+		});
+
+		document.dispatchEvent(customEventChangeSum);
 	});
 
 	document.addEventListener('changeCount', (obj) => {
 		const elem = obj.detail.elem;
 		const target = obj.detail.target;
 		const doorsItem = obj.detail.doorsItem;
+		const customEventChangeSum = new CustomEvent('changeSum', {
+			detail: {
+				elem: elem,
+				doorsItem: doorsItem,
+			},
+		});
 
 		doorsItem.chengeCount(target);
 
@@ -302,6 +293,24 @@ function eventInitialization() {
 		allDoorItem.forEach((item) => {
 			if (item.dataset.name == elem.dataset.name) {
 				item.querySelector('.door__count').value = doorsItem.count;
+			}
+		})
+
+		document.dispatchEvent(customEventChangeSum);
+		changeDataInHtml()
+	});
+
+	document.addEventListener('changeSum', (obj) => {
+		const elem = obj.detail.elem;
+		const doorsItem = obj.detail.doorsItem;
+
+		doorsItem.chengeSum();
+
+		const allDoorItem = document.querySelectorAll('.door__item');
+
+		allDoorItem.forEach((item) => {
+			if (item.dataset.name == elem.dataset.name) {
+				item.querySelector('.door__sum > span').innerHTML = doorsItem.sum;
 			}
 		})
 
@@ -343,7 +352,10 @@ function eventInitialization() {
 										<label class="door__checkbox-label" for="${name}_lb_selected">
 										${doors[model][name].title}
 										</label>
-										<p class="door__price">Ціна: ${doors[model][name].priceRealiz}<span></span></p>
+										<div class="door__wrap-price">
+											<p class="door__price">Ціна: <span>${doors[model][name].priceRealiz}</span></p>
+											<p class="door__sum">Сума: <span>${doors[model][name].sum}</span></p>
+										</div>
 										<div class="door__btn-block">
 												<button class="door__value-btn door__value-btn--minus">-</button>
 												<input type="number" class="door__count" value="${doors[model][name].count}">

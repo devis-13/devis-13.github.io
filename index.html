@@ -115,6 +115,7 @@
 						</ul>
 						<div class="swiper">
 							<div class="swiper__close"></div>
+							<div class="swiper-pagination"></div>
 							<div class="swiper-wrapper">
 								<div class="swiper-slide">
 									<img src="./img/model/standart/st_1/ST_1_01.png" alt="ST_1_01" class="swiper__image">
@@ -189,7 +190,6 @@
 									<h5 class="swiper__model-title">ST.3.04</h5>
 								</div>
 							</div>
-							<div class="swiper-pagination"></div>
 						</div>
 					</div>
 				</div>
@@ -270,6 +270,7 @@
 						</ul>
 						<div class="swiper">
 							<div class="swiper__close"></div>
+							<div class="swiper-pagination"></div>
 							<div class="swiper-wrapper">
 								<div class="swiper-slide">
 									<img src="./img/model/etalon/ET_01.png" alt="ET_01" class="swiper__image">
@@ -340,7 +341,6 @@
 									<h5 class="swiper__model-title">ET.17</h5>
 								</div>
 							</div>
-							<div class="swiper-pagination"></div>
 						</div>
 					</div>
 				</div>
@@ -373,6 +373,7 @@
 						</ul>
 						<div class="swiper">
 							<div class="swiper__close"></div>
+							<div class="swiper-pagination"></div>
 							<div class="swiper-wrapper">
 								<div class="swiper-slide">
 									<img src="./img/model/nominal/NL_01.png" alt="NL_01" class="swiper__image">
@@ -395,14 +396,13 @@
 									<h5 class="swiper__model-title">NL.05</h5>
 								</div>
 							</div>
-							<div class="swiper-pagination"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="door__block" id="standart">
+		<div class="door__block active" id="standart">
 			<div class="door__header">
 				<h2 class="door__title">СЕРІЯ "СТАНДАРТ"</h2>
 			</div>
@@ -410,7 +410,10 @@
 				<div class="door__item" data-model="standart" data-name="st-1" id="st-1">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="st-1" id="st-1_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -420,7 +423,10 @@
 				<div class="door__item" data-model="standart" data-name="st-2" id="st-2">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="st-2" id="st-2_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -430,7 +436,10 @@
 				<div class="door__item" data-model="standart" data-name="st-3" id="st-3">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="st-3" id="st-3_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -447,7 +456,10 @@
 				<div class="door__item" data-model="etalon" data-name="et-01-pvh" id="et-01-pvh">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="et-01-pvh" id="et-01-pvh_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -457,7 +469,10 @@
 				<div class="door__item" data-model="etalon" data-name="et-01-al" id="et-01-al">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="et-01-al" id="et-01-al_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -467,7 +482,10 @@
 				<div class="door__item" data-model="etalon" data-name="et-02-17-pvh" id="et-02-17-pvh">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="et-02-17-pvh" id="et-02-17-pvh_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -477,7 +495,10 @@
 				<div class="door__item" data-model="etalon" data-name="et-02-17-al" id="et-02-17-al">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="et-02-17-al-lb" id="et-02-17-al_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -494,7 +515,10 @@
 				<div class="door__item" data-model="denomination" data-name="nl-1" id="nl-1">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="nl-1" id="nl-1_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -504,7 +528,10 @@
 				<div class="door__item" data-model="denomination" data-name="nl-2-5" id="nl-2-5">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="nl-2-5" id="nl-2-5_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -514,7 +541,10 @@
 				<div class="door__item" data-model="denomination" data-name="boxTel-80" id="boxTel-80">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boxTel-80" id="boxTel-80_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -524,7 +554,10 @@
 				<div class="door__item" data-model="denomination" data-name="boxTel-100" id="boxTel-100">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boxTel-100" id="boxTel-100_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -534,7 +567,10 @@
 				<div class="door__item" data-model="denomination" data-name="boxTel-120" id="boxTel-120">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boxTel-120" id="boxTel-120_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -544,7 +580,10 @@
 				<div class="door__item" data-model="denomination" data-name="welt-80" id="welt-80">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="welt-80" id="welt-80_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -554,7 +593,10 @@
 				<div class="door__item" data-model="denomination" data-name="welt-80-40" id="welt-80-40">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="welt-80-40" id="welt-80-40_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -564,7 +606,10 @@
 				<div class="door__item" data-model="denomination" data-name="dob-100" id="dob-100">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="dob-100" id="dob-100_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -574,7 +619,10 @@
 				<div class="door__item" data-model="denomination" data-name="dob-150" id="dob-150">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="dob-150" id="dob-150_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -584,7 +632,10 @@
 				<div class="door__item" data-model="denomination" data-name="dob-200" id="dob-200">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="dob-200" id="dob-200_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -602,7 +653,10 @@
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boardPrimedPaint-pr"
 						id="boardPrimedPaint-pr_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -613,7 +667,10 @@
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boardPrimedPaint-al"
 						id="boardPrimedPaint-al_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -625,7 +682,10 @@
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boardPrimedPaintInside-pr"
 						id="boardPrimedPaintInside-pr_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -637,7 +697,10 @@
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boardPrimedPaintInside-al"
 						id="boardPrimedPaintInside-al_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -647,7 +710,10 @@
 				<div class="door__item" data-model="paint" data-name="boardPaint" id="boardPaint">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boardPaint" id="boardPaint_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -658,7 +724,10 @@
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boardPaintInside"
 						id="boardPaintInside_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -668,7 +737,10 @@
 				<div class="door__item" data-model="paint" data-name="concBox" id="concBox">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="concBox" id="concBox_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -678,7 +750,10 @@
 				<div class="door__item" data-model="paint" data-name="concBoxInside" id="concBoxInside">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="concBoxInside" id="concBoxInside_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -695,7 +770,10 @@
 				<div class="door__item" data-model="other" data-name="boxTel-80" id="boxTel-80">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boxTel-80" id="boxTel-80_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -705,7 +783,10 @@
 				<div class="door__item" data-model="other" data-name="boxTel-100" id="boxTel-100">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boxTel-100" id="boxTel-100_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -715,7 +796,10 @@
 				<div class="door__item" data-model="other" data-name="boxTel-120" id="boxTel-120">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boxTel-120" id="boxTel-120_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -725,7 +809,10 @@
 				<div class="door__item" data-model="other" data-name="weltTel-80" id="weltTel-80">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="weltTel-80" id="weltTel-80_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -735,7 +822,10 @@
 				<div class="door__item" data-model="other" data-name="weltTel-80-40" id="weltTel-80-40">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="weltTel-80-40" id="weltTel-80-40_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -745,7 +835,10 @@
 				<div class="door__item" data-model="other" data-name="boxComp-80" id="boxComp-80">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="boxComp-80" id="boxComp-80_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -755,7 +848,10 @@
 				<div class="door__item" data-model="other" data-name="weltComp-80" id="weltComp-80">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="weltComp-80" id="weltComp-80_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -765,7 +861,10 @@
 				<div class="door__item" data-model="other" data-name="dobTel-100" id="dobTel-100">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="obTel-100" id="obTel-100_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -775,7 +874,10 @@
 				<div class="door__item" data-model="other" data-name="dobTel-150" id="dobTel-150">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="dobTel-150" id="dobTel-150_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -785,7 +887,10 @@
 				<div class="door__item" data-model="other" data-name="dobTel-200" id="dobTel-200">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="dobTel-200" id="dobTel-200_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -795,7 +900,10 @@
 				<div class="door__item" data-model="other" data-name="fitIns-pvh" id="fitIns-pvh">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="fitIns-pvh" id="fitIns-pvh_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -805,7 +913,10 @@
 				<div class="door__item" data-model="other" data-name="fitIns-al" id="fitIns-al">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="fitIns-al" id="fitIns-al_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -815,7 +926,10 @@
 				<div class="door__item" data-model="other" data-name="paintAl" id="paintAl">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="paintAl" id="paintAl_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -825,7 +939,10 @@
 				<div class="door__item" data-model="other" data-name="alProf-40" id="alProf-40">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="alProf-40" id="alProf-40_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -835,7 +952,10 @@
 				<div class="door__item" data-model="other" data-name="alProf-56" id="alProf-56">
 					<input type="checkbox" class="door__checkbox visually-hidden" name="alProf-56" id="alProf-56_lb">
 					<label class="door__checkbox-label"></label>
-					<p class="door__price">Ціна: <span></span></p>
+					<div class="door__wrap-price">
+						<p class="door__price">Ціна: <span></span></p>
+						<p class="door__sum">Сума: <span>0</span></p>
+					</div>
 					<div class="door__btn-block">
 						<button class="door__value-btn door__value-btn--minus">-</button>
 						<input type="number" class="door__count" value="0">
@@ -859,7 +979,6 @@
 			</div>
 		</div>
 
-		<!-- <button class="door__sum-btn">Розрахувати</button> -->
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="script.js"></script>
 
