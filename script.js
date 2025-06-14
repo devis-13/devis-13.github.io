@@ -351,7 +351,7 @@ function eventInitialization() {
 
 		amountEpicentr.innerHTML = countEpicentr;
 		amountRealiz.innerHTML = countRealiz;
-		amountShare.innerHTML = countShare;
+		amountShare.innerHTML = countShare.toFixed(2);
 	});
 
 	document.addEventListener('writeSelectedItems', () => {
