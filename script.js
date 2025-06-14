@@ -11,20 +11,26 @@ class Model {
 
 	toggleChecked() {
 		this.checked = !this.checked;
-		if (this.checked) {
-			!this.count ? this.count = 1 : this.count;
-		} else { this.count = 0 };
+		this.chengeCount('toggle');
 
 		changeDataInHtml()
 	}
 
-	chengeCount(target) {
-		if (target.closest('.door__value-btn--minus') && this.count > 0) {
-			this.count -= 1;
-		};
-
-		if (target.closest('.door__value-btn--plus')) {
-			this.count += 1;
+	chengeCount(action) {
+		switch (action) {
+			case '+':
+				this.count += 1;
+				break;
+			case '-':
+				this.count -= 1;
+				break;
+			case 'toggle':
+				if (this.checked) {
+					!this.count ? this.count = 1 : this.count;
+				} else { this.count = 0 };
+				break;
+			default:
+				console.log('Error');
 		};
 	}
 
@@ -286,7 +292,13 @@ function eventInitialization() {
 			},
 		});
 
-		doorsItem.chengeCount(target);
+		if (target.closest('.door__value-btn--minus') && doorsItem.count > 0) {
+			doorsItem.chengeCount('-');
+		};
+
+		if (target.closest('.door__value-btn--plus')) {
+			doorsItem.chengeCount('+');
+		};
 
 		const allDoorItem = document.querySelectorAll('.door__item');
 
