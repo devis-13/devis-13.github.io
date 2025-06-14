@@ -101,6 +101,7 @@ const selectedItemsList = {};
 const allDoorsItems = document.querySelectorAll('.door__item');
 let countRealiz = 0;
 let countEpicentr = 0;
+let countShare = 0;
 
 allDoorsItems.forEach(elem => {
 	const elemModel = elem.dataset.model;
@@ -332,9 +333,11 @@ function eventInitialization() {
 	document.addEventListener('calculateAmount', () => {
 		const amountEpicentr = document.querySelector('.door__amount-res--epicentr > span');
 		const amountRealiz = document.querySelector('.door__amount-res--realiz > span');
+		const amountShare = document.querySelector('.door__amount-res--share > span');
 
 		countRealiz = 0;
 		countEpicentr = 0;
+		countShare = 0;
 
 		for (key in selectedItemsList) {
 			let item = selectedItemsList[key];
@@ -343,10 +346,12 @@ function eventInitialization() {
 
 			countRealiz += doors[model][name].priceRealiz * +item.count;
 			countEpicentr += doors[model][name].priceEpicentr * +item.count;
+			countShare = countEpicentr * 0.04;
 		};
 
 		amountEpicentr.innerHTML = countEpicentr;
 		amountRealiz.innerHTML = countRealiz;
+		amountShare.innerHTML = countShare;
 	});
 
 	document.addEventListener('writeSelectedItems', () => {
